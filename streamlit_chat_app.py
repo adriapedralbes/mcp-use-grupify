@@ -21,13 +21,10 @@ if prompt := st.chat_input("¿Qué quieres saber de la base de datos?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
 
     try:
-        # Obtener respuesta de la base de datos usando run_query
-        # Como run_query es async, necesitamos asyncio.run()
-        # Streamlit por defecto no tiene un loop de asyncio corriendo en el hilo principal
-        # para cada request, así que asyncio.run() es una forma de ejecutarlo.
-        # Considerar que run_query podría tener efectos secundarios como imprimir a stdout.
-        # El parámetro stream=False podría ser mejor para una integración UI si no se quiere el output en consola.
-        response_content = asyncio.run(run_query(prompt, stream=False))
+        # Mostrar spinner mientras se procesa la consulta
+        with st.spinner('Procesando tu consulta...'):
+            # Obtener respuesta de la base de datos usando run_query
+            response_content = asyncio.run(run_query(prompt, stream=False))
     except Exception as e:
         response_content = f"Lo siento, ocurrió un error al procesar tu consulta: {e}"
         st.error(response_content) # Mostrar error en la UI también
