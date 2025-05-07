@@ -23,7 +23,7 @@ class MySQLConnector:
                 password=self.password,
                 database=self.database
             )
-            self.cursor = self.connection.cursor(dictionary=True) # dictionary=True for dict-like rows
+            self.cursor = self.connection.cursor(buffered=True, dictionary=True) # Use buffered dictionary cursor
             print(f"Successfully connected to MySQL: {self.host}:{self.port}/{self.database}")
         except mysql.connector.Error as err:
             print(f"Error connecting to MySQL: {err}")
