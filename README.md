@@ -24,9 +24,9 @@ This project demonstrates using the mcp-use library to create an agent that can 
 
 3. Update the `mysql_mcp.json` file with the same MySQL connection details if needed.
 
-4. Run the agent:
+4. Run the agent in terminal CLI:
    ```bash
-   python mysql_agent.py
+   python custom_query_direct.py
    ```
 
 ## How it works
@@ -46,6 +46,22 @@ The agent connects to your MySQL database and can answer questions about your da
 - "Find the top 10 records in table Z sorted by column A"
 - "Show me the relationships between tables in the database"
 - "Create a summary of what this database is used for based on its schema"
+
+## Using the Agent with Streamlit
+
+In addition to running the agent via the terminal CLI, you can also use it with a Streamlit-based web interface. This allows for a more interactive experience.
+
+1. Ensure all dependencies are installed:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Run the Streamlit app:
+   ```bash
+   streamlit run streamlit_chat_app.py
+   ```
+
+3. Open the provided URL in your browser to interact with the agent through a user-friendly interface.
 
 ## Advanced usage
 

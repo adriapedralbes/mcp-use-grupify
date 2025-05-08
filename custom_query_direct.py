@@ -90,7 +90,7 @@ async def run_query(query, stream=True):
         agent=agent,
         tools=[mysql_tool],
         verbose=True,
-        max_iterations=30
+        max_iterations=60
     )
     
     try:
